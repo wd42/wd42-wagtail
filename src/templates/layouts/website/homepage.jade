@@ -9,10 +9,10 @@ block content
 			span.organisation 42&deg;
 		.tagline The meetup at the end of the universe...
 
-	.details-upcoming.u-hascol
-		.wrap
+	.details-upcoming
+		.wrap.u-hascol
 			.countdown.u-col-3
-				.countdown--progress(data-startdatetime="{{ current_event.start_datetime }}")
+				.countdown--progress(data-startdatetime="{{ current_event.start_datetime|date:'m/d/Y H:i:s' }}")
 				.countdown--message Until the next #wd42
 
 			.nextevent.u-col-3
@@ -27,8 +27,8 @@ block content
 				for speaker in current_event.schedule.all
 					li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} {{speaker.speaker}}
 
-	.details-general.u-hascol
-		.wrap
+	.details-general
+		.wrap.u-hascol
 			.location.u-col-3
 				h2.title Find Us
 				.map-contain

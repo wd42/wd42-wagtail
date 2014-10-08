@@ -30,9 +30,11 @@ $(document).ready(function(){
 		icon: markerIcon
 	});
 
-	$('.countdown--progress').countdown('09/24/2014 17:30:00', function(e) {
-		$(this).text( e.strftime('%D Days %H Hours %M Minutes %S Seconds') );
-	});
+	var $timer = $('.countdown--progress');
+
+//	$timer.countdown($timer.data('startdatetime') , function(e) {
+//		$(this).text( e.strftime('%D Days %H Hours %M Minutes %S Seconds') );
+//	});
 
 	KeyboardJS.on('ctrl + p', function(){ $('body').toggleClass('is-present-mode'); });
 
