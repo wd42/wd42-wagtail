@@ -28,7 +28,7 @@ gulp.task('watch', function() {
 	gulp.watch('src/scss/**', ['styles']);
 	gulp.watch('src/images/**', ['images']);
 	gulp.watch('src/templates/**', ['jade']);
-	// Note: The browserify task handles js recompiling with watchify
+	gulp.watch('src/js/**', ['browserify']);
 });
 
 
@@ -37,33 +37,50 @@ gulp.task('watch', function() {
 * Browserify - compile and move javascript
 */
 
-var browserify   = require('browserify');
-var watchify     = require('watchify');
-var source       = require('vinyl-source-stream');
+//var browserify   = require('browserify');
+//var watchify     = require('watchify');
+//var source       = require('vinyl-source-stream');
+//
+//gulp.task('browserify', function() {
+//
+//	var bundler = watchify({
+//		// Specify the entry point of your app
+//		entries: ['./src/javascript/app.js']
+//	});
+//
+//	var bundle = function() {
+//		bundleLogger.start();
+//
+//		return bundler
+//			.bundle({debug: true})
+//			.on('error', handleErrors)
+//			.pipe(source('app.js'))
+//			.pipe(gulp.dest(baseDir + '/static/js'))
+//			.on('end', bundleLogger.end);
+//	};
+//
+//	bundler.on('update', bundle);
+//
+//	return bundle();
+//});
 
-gulp.task('browserify', function() {
 
-	var bundler = watchify({
-		// Specify the entry point of your app
-		entries: ['./src/javascript/app.js']
-	});
+var buffer = require('vinyl-buffer');
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
+var uglify = require('gulp-uglify');
+var size = require('gulp-size');
 
-	var bundle = function() {
-		bundleLogger.start();
+var bundler = browserify('./src/javascript/app.js');
 
-		return bundler
-			.bundle({debug: true})
-			.on('error', handleErrors)
-			.pipe(source('app.js'))
-			.pipe(gulp.dest(baseDir + '/static/js'))
-			.on('end', bundleLogger.end);
-	};
-
-	bundler.on('update', bundle);
-
-	return bundle();
+gulp.task('browserify', function(){
+  return bundler.bundle({standalone: 'noscope'})
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(size())
+    .pipe(gulp.dest(baseDir + '/static/js'));
 });
-
 
 
 /*

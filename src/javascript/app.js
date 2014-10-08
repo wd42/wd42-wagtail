@@ -32,10 +32,10 @@ $(document).ready(function(){
 
 	var $timer = $('.countdown--progress');
 
-//	$timer.countdown($timer.data('startdatetime') , function(e) {
-//		$(this).text( e.strftime('%D Days %H Hours %M Minutes %S Seconds') );
-//	});
+	$timer.countdown($timer.data('startdatetime') , function(e) {
+		$(this).text( e.strftime('%D Days %H Hours %M Minutes %S Seconds') );
+	});
 
 	KeyboardJS.on('ctrl + p', function(){ $('body').toggleClass('is-present-mode'); });
-
 });
+
