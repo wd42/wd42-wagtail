@@ -25,8 +25,8 @@ block content
 
 			.line-up.u-col-3
 				ul
-				for speaker in current_event.schedule.all
-					li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} {{speaker.speaker}}
+					for speaker in current_event.schedule.all
+						li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} {{speaker.speaker}}
 
 
 	.details-general
