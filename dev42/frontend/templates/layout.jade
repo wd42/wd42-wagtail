@@ -1,0 +1,29 @@
+include mixins
+
+- load 
+
+doctype html
+!= "<!--[if lt IE 7]>      <html class=\"no-js lt-ie9 lt-ie8 lt-ie7\"> <![endif]-->"
+!= "<!--[if IE 7]>         <html class=\"no-js lt-ie9 lt-ie8\"> <![endif]-->"
+!= "<!--[if IE 8]>         <html class=\"no-js lt-ie9\"> <![endif]-->"
+!= "<!--[if gt IE 8]><!-->"
+html.no-js
+	!= "<!--<![endif]-->"
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+		title='42'
+
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Open+Sans:400,600,700|Open+Sans+Condensed:300,700')
+		link(rel='stylesheet',href="https://fontastic.s3.amazonaws.com/6EFjCkz7h53CYvtHW869Vm/icons.css")
+		link(rel='stylesheet', href='{{ STATIC_URL }}css/app.css')
+
+		script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+
+	body
+		block content
+
+		script(src='{{ STATIC_URL }}js/app.js')

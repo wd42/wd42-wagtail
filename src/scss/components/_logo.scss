@@ -1,0 +1,121 @@
+$green: #5bbb72;
+$purple: #a4448d;
+
+.logo {
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	font-family: 'Helvetica Neue';
+	width: 80%;
+
+	span {
+		width: 40%;
+		font-size: 25px;
+		line-height: 50px;
+		height: 50px;
+
+		vertical-align: middle;
+		text-align: center;
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			//This ends up being drawn at 42deg on the inside of the logo which is what we want.
+			@include transform(skewX(-48deg));
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+	}
+
+	.name,
+	.name-long {
+		color: white;
+		font-weight: 600;
+		&:before {
+			left: 0;
+			top: 0;
+			background: $wd42-color-accent;
+		}
+	}
+
+	.name-long {
+		display: none;
+	}
+
+	.organisation {
+		font-weight: 200;
+		color: $wd42-color-accent;
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: white;
+		}
+	}
+
+	@include respond-to($tablet-context) {
+		width: 350px;
+		span {
+			font-size: 33px;
+			line-height: 100px;
+			height: 100px;
+		}
+	}
+
+	@include respond-to($desktop-context) {
+		.name {
+			display: none;
+		}
+		.name-long {
+			display: inline-block;
+			width: 250px;
+		}
+		.organisation {
+			width: 100px;
+		}
+
+		span {
+			font-size: 25px;
+			line-height: 70px;
+			height: 70px;
+		}
+	}
+}
+
+
+.tagline {
+  	display: none;
+	line-height: 36px;
+	font-size: 16px;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	position: absolute;
+	left: 50%;
+	margin-left: -76px; // @hack :(
+	font-weight: normal;
+	width: 350px;
+	&:before {
+		@include transform(skewX(-48deg)); //This ends up being drawn at 42deg on the inside of the logo which is what we want.
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		z-index: -1;
+		background: $wd42-color-accent;
+	}
+
+	@include respond-to($tablet-context) {
+	  display: block;
+	}
+
+  	@include respond-to($desktop-context) {
+	  margin-left: 16px; // @hack :(
+	}
+}

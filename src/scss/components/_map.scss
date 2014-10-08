@@ -1,0 +1,20 @@
+.map-contain {
+	position: relative;
+	height: 240px;
+	overflow: hidden;
+}
+
+#map {
+	height: 255px;
+	width: 100%;
+}
+
+.map-control {
+  @include rem(width, 30px);
+  @include rem(height, 30px);
+  background: $wd42-color-accent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}

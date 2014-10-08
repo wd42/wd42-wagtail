@@ -1,0 +1,15 @@
+var/
+venv/
+*.pyc
+*.local
+.vagrant
+
+node_modules
+dist
+build
+.tmp
+.sass-cache
+.idea
+src/bower_components
+.DS_Store
+npm-debug.log

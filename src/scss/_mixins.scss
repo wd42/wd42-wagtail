@@ -1,0 +1,120 @@
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin base-button( $color1, $color2 ){
+  @include box-sizing(border-box);
+  background: $color1;
+  border-radius: 5px;
+  color: $white;
+  @include linear-gradient(tint($color1, 10%), shade($color1, 10%));
+  text-decoration: none;
+  box-shadow: 1px 1px 2px lighten($color1, 20%) inset;
+  text-shadow: -1px -1px 1px darken($color1, 20%);
+
+  &:hover {
+    @include linear-gradient(tint($color2, 10%), shade($color2, 10%));
+    box-shadow: 1px 1px 2px lighten($color2, 20%) inset;
+    text-shadow: -1px -1px 1px darken($color2, 20%);
+  }
+}
+
+@mixin responsive-font-size( $size ) {
+  @include font-size($size);
+  @each $value in ( 1.3, 1.5, 2.0, 3.0 ) {
+    @include hidpi($value) {
+      @include font-size(#{round(strip-units($size/$value))}px);
+    }
+  }
+}
+
+@mixin opacity( $opacity ){
+	filter: alpha(opacity=$opacity*100); // IE6-IE8
+	opacity: $opacity; // Chrome 4+, FF2+, Saf3.1+, Opera 9+, IE9, iOS 3.2+, Android 2.1+
+}
+
+@mixin respond-to($media, $fallback:null) {
+  @if $fallback != null {
+    #{$fallback} {
+      @content;
+    }
+  }
+  @media #{$media} { @content; }
+}
+
+@mixin vertical-align() {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+}
+
+@mixin font-size($size) {
+  @include rem(font-size, $size);
+}
+
+@mixin line-height($size) {
+  @include rem(line-height, $size);
+}
+
+@mixin rem($property, $values) {
+  $basePx: 16;
+
+  @if $defaultFontSize != null {
+    $basePx: $defaultFontSize * 16;
+  }
+
+  $px: ();
+  $rem: ();
+
+  @each $value in $values {
+    @if $value == 0 or $value == auto {
+      $px: append($px, $value);
+      $rem: append($rem, $value);
+    } @else {
+      $unit: unit($value);
+      $val: strip-units($value);
+
+      @if $unit == "px" or $unit != "rem" {
+        $px: append($px, $value);
+        $rem: append($rem, ($val / $basePx + rem));
+      }
+
+      @if $unit == "rem" {
+        $px: append($px, ($val * $basePx + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  #{$property}: $px;
+  #{$property}: $rem;
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin icon($char, $font, $size: 1rem){
+  @include font-size($size);
+  font-family: $font;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  content: $char;
+  vertical-align: middle;
+  width: $size;
+  height: $size;
+
+}

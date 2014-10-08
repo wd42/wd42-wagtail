@@ -1,0 +1,132 @@
+html {
+	height: 100%;
+}
+
+body {
+	background: url('../images/bg.jpg') center center no-repeat fixed;
+	background-size: cover;
+}
+
+
+.page-header {
+	@include rem(padding, 30px 0);
+	@include respond-to($tablet-context) {
+		@include rem(padding, 120px 0 85px);
+	}
+}
+
+.details-upcoming {
+	@include rem(margin-bottom, 35px);
+	background: rgba(white, 0.6);
+	color: black;
+}
+
+	.countdown {
+		display: none;
+		vertical-align: middle;
+		text-align: center;
+		&--progress {
+			@include font-size(24px);
+		}
+		&--message {
+		}
+		@include respond-to($tablet-context) {
+			display: table-cell; // Because its part of the grid - see components/grid.scss
+		}
+	}
+	
+	.line-up {
+		text-align: center;
+		ul {
+			list-style: none;
+			display: inline-block;
+			li {
+				text-align: left;
+			}
+		}
+	}
+
+
+.details-general {
+	background: rgba(black, 0.6);
+	color: white;
+}
+	.location {
+		display: none;
+		@include respond-to($tablet-context) {
+			display: table-cell; // Because its part of the grid - see components/grid.scss
+		}
+	}
+
+.nextevent {
+	text-align: center;
+	&--title,
+	&--date {
+		@include font-size(24px);
+	}
+	&--ical {
+		@include font-size(12px);
+		display: block;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	&--register {
+		@include rem(margin, 10px 0);
+	}
+}
+
+
+.gallery {
+	@include clearfix();
+	display: none;
+	&--item {
+		width: (100% / 2);
+		float: left;
+		display: block;
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+	}
+	
+	@include respond-to($tablet-context) {
+		display: block;
+		&--item {
+			width: (100% / 5);
+		}
+	}
+	@include respond-to($desktop-context) {
+		&--item {
+			width: (100% / 10);
+		}
+	}
+}
+
+.wrap {
+	@include rem(max-width, 1440px);
+	margin: 0 auto;
+}
+
+.is-present-mode {
+	display: table;
+	width: 100%;
+	height: 100%;
+	
+	.details-upcoming,
+	.details-general,
+	.gallery {
+		display: none;
+	}
+	
+	.page-header {
+		padding: 0;
+		height: 100%;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+}

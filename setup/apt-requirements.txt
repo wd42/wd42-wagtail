@@ -1,0 +1,4 @@
+build-essential python python-dev python-setuptools python-pip
+libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
+postgresql libpq-dev
+libxml2-dev libxslt-dev

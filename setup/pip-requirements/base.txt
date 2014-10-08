@@ -1,0 +1,8 @@
+Django==1.7.0
+psycopg2==2.5.2
+wagtail==0.6.0
+pyjade==2.2.0
+pytz>=0
+
+# 0.12.1 is broken, but is the latest release. Update when this is fixed.
+git+https://github.com/alex/django-taggit.git@e8cac34e34079d6b9033209f8c28a95338802634#egg=django-taggit

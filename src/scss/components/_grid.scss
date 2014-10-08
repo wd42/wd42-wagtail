@@ -1,0 +1,24 @@
+.u-hascol {
+	@include clearfix();
+	display: table;
+	width: 100%;
+}
+
+.u-col-3 {
+	@include box-sizing(border-box);
+	@include rem(padding, 10px);
+	
+	@include respond-to($tablet-context) {
+		@include rem(padding, 20px);
+	}
+	
+	@include respond-to($desktop-context) {
+		width: (100% / 3);
+		vertical-align: top;
+		display: table-cell; // @hack: We want all our cells to be the same height. One day flexbox, one day. -JS
+	}
+	
+	@include respond-to($large-desktop-context) {
+		@include rem(padding, 20px);
+	}
+}
