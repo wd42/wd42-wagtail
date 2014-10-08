@@ -19,13 +19,15 @@ block content
 				.nextevent--title {{ current_event.title }}
 				.nextevent--date {{ current_event.start_datetime|date:"g:iA"|lower }} {{ current_event.start_datetime|date:"l jS" }}
 				.nextevent--action
-					a(href="#").nextevent--register.btn Register Now
-					a(href="#ical").nextevent--ical Get a reminder (iCal)
+					if current_event.signup_link
+						a(href="{{ current_event.signup_link }}").nextevent--register.btn Register Now
+					a(href="http://www.google.com/calendar/ical/joshgilli.es_ets7187s9vds2f1j4vsiljtf4k%40group.calendar.google.com/public/basic.ics").nextevent--ical Get a reminder (iCal)
 
 			.line-up.u-col-3
 				ul
 				for speaker in current_event.schedule.all
 					li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} {{speaker.speaker}}
+
 
 	.details-general
 		.wrap.u-hascol
