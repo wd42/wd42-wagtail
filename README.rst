@@ -7,7 +7,7 @@ Setting up for development
 Get the code, and then ``make run``::
 
     $ git clone git@github.com:wd42/wd42-wagtail.git
-    $ cd dev42
+    $ cd wd42-wagtail
     $ make run
 
 This will get the environment up and running.
