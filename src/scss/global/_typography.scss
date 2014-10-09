@@ -29,6 +29,7 @@ li {
 
 .title {
 	@include rem(margin, 30px 0);
+	@include rem(line-height, 28px);
 	&:first-child {
 		margin-top: 0;
 	}
