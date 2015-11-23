@@ -3,7 +3,7 @@ var countdown = require('countdown');
 var KeyboardJS = require('keyboardjs');
 
 $(document).ready(function(){
-	var latlng = new google.maps.LatLng(-42.886681, 147.336267);
+	var latlng = new google.maps.LatLng(-42.882165, 147.330705);
 
 	var markerIcon = {
 		path: 'M 0, 0 m -10, 0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0',
