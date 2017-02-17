@@ -1,0 +1,6 @@
+.sponsor {
+  display: inline-block;
+  + .sponsor {
+    margin-left: 30px;
+  }
+}
