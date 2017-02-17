@@ -46,6 +46,8 @@
     "keyboardjs": "0.4.2"
   },
   "scripts": {
-    "start":"gulp"
+    "start":"gulp",
+    "build":"gulp build",
+    "js": "gulp browserify;" 
   }
 }

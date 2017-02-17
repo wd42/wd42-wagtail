@@ -628,14 +628,36 @@ li {
     width: 250px;
   }
   .logo .organisation {
-    width: 100px;
-  }
-  .logo span {
-    font-size: 25px;
-    line-height: 70px;
-    height: 70px;
-  }
-}
+    font-weight: 200;
+    color: #5bbb72; }
+    .logo .organisation:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: white; }
+  @media only screen and (min-width: 768px) {
+    .logo {
+      width: 350px; }
+      .logo span {
+        font-size: 33px;
+        line-height: 100px;
+        height: 100px; } }
+  @media only screen and (min-width: 960px) and (orientation: landscape) {
+    .logo .name {
+      display: none; }
+
+    .logo .name-long {
+      display: inline-block;
+      width: 250px; }
+
+    .logo .organisation {
+      width: 100px; }
+
+    .logo span {
+      font-size: 25px;
+      line-height: 70px;
+      height: 70px; }
+ }
 
 .tagline {
   display: none;
@@ -837,15 +859,22 @@ body {
     display: block;
   }
   .gallery--item {
-    width: 20%;
-  }
-}
-
-@media only screen and (min-width: 960px) and (orientation: landscape) {
-  .gallery--item {
-    width: 10%;
-  }
-}
+    width: 50%;
+    float: left;
+    display: block; }
+    .gallery--item img {
+      width: 100%;
+      height: auto;
+      display: block; }
+  @media only screen and (min-width: 768px) {
+    .gallery {
+      display: block; }
+      .gallery--item {
+        width: 20%; } }
+  @media only screen and (min-width: 960px) and (orientation: landscape) {
+    .gallery--item {
+      width: 10%; }
+ }
 
 .wrap {
   max-width: 1440px;

@@ -13,8 +13,8 @@ admin.autodiscover()
 
 
 # Signal handlers
-from wagtail.wagtailsearch import register_signal_handlers as wagtailsearch_register_signal_handlers
-wagtailsearch_register_signal_handlers()
+#from wagtail.wagtailsearch import register_signal_handlers as wagtailsearch_register_signal_handlers
+#wagtailsearch_register_signal_handlers()
 
 
 urlpatterns = patterns(
