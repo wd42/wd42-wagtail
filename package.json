@@ -5,7 +5,7 @@
     "countdown": "./src/javascript/libs/jquery.countdown.js"
   },
   "browserify": {
-	  
+
     "transform": [
       "browserify-shim"
     ]
@@ -19,27 +19,27 @@
 		}
   },
   "devDependencies": {
-    "browser-sync": "~0.8.2",
-    "browserify-shim": "~3.4.1",
-    "browserify": "~3.36.0",
-    "connect": "~2.14.3",
-    "gulp-changed": "~0.3.0",
-    "gulp-sass": "*",
-    "gulp-jade": "^0.4.2",
-    "gulp-minify-css": "^0.3.0",
-    "gulp-filter": "^0.3.1",
-    "gulp-uglify": "^0.2.1",
-    "gulp-imagemin": "~0.1.5",
-    "gulp-notify": "~1.2.4",
-    "gulp-open": "~0.2.8",
-    "gulp-size": "1.1.0",
-    "gulp": "~3.6.0",
-    "hbsfy": "~1.3.2",
-    "vinyl-buffer": "~1.0.0",
-    "vinyl-source-stream": "~0.1.1",
-    "watchify": "~0.10.1",
-    "gulp-util": "~2.2.14",
-    "pretty-hrtime": "~0.2.1"
+    "browser-sync": "latest",
+    "browserify-shim": "latest",
+    "browserify": "latest",
+    "connect": "latest",
+    "gulp-changed": "latest",
+    "gulp-sass": "latest",
+    "gulp-jade": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-filter": "latest",
+    "gulp-uglify": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-notify": "latest",
+    "gulp-open": "latest",
+    "gulp-size": "latest",
+    "gulp": "latest",
+    "hbsfy": "latest",
+    "vinyl-buffer": "latest",
+    "vinyl-source-stream": "latest",
+    "watchify": "latest",
+    "gulp-util": "latest",
+    "pretty-hrtime": "latest"
   },
   "dependencies": {
     "jquery": "~2.1.0",
@@ -48,6 +48,6 @@
   "scripts": {
     "start":"gulp",
     "build":"gulp build",
-    "js": "gulp browserify;" 
+    "js": "gulp browserify;"
   }
 }

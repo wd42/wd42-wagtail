@@ -71,10 +71,10 @@ var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var size = require('gulp-size');
 
-var bundler = browserify('./src/javascript/app.js');
+var bundler = browserify('./src/javascript/app.js', {standalone: 'noscope'});
 
 gulp.task('browserify', function(){
-  return bundler.bundle({standalone: 'noscope'})
+  return bundler.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(uglify())
