@@ -31,7 +31,11 @@ block content
 				ul
 					if current_event.schedule
 						for speaker in current_event.schedule.all
-							li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} {{speaker.speaker}}
+							if speaker.speaker
+								li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}} - {{speaker.speaker}}
+							else
+								li {{speaker.time|date:"g:iA"|lower }}: {{speaker.title}}
+								
 
 
 	.details-general
